@@ -1,0 +1,91 @@
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-title {
+  color: #737373;
+  font-size: 16px;
+  text-align: left;
+  font-family: openSansRegular;
+  margin-bottom: 5px;
+}
+
+.input-unit {
+  color: #737373;
+  font-size: 16px;
+  text-align: left;
+  font-family: openSansRegular;
+  margin-left: 5px;
+}
+
+.input-container input {
+  border: 1px solid #0D0D0D;
+  background-color: #FFFFFF;
+  color: #0D0D0D;
+  font-size: 16px;
+  font-family: openSansRegular;
+  height: 48px;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.input-container input::placeholder {
+  color: #ADADAD;
+  font-size: 16px;
+}
+
+.input-container input:focus {
+  border: 2px solid #0D0D0D;
+  outline: none;
+}
+
+.input-container select {
+  border: 1px solid #0D0D0D;
+  background-color: #FFFFFF;
+  color: #0D0D0D;
+  font-size: 16px;
+  font-family: openSansRegular;
+  height: 48px;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.input-container select:focus {
+  border: 2px solid #0D0D0D;
+  outline: none;
+}
+
+.input-container input[type="number"] {
+  width: 50%;
+}
+
+.input-container input[type="color"] {
+  width: 50%;
+}
+
+.input-container span.material-icons {
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.input-container span.material-icons:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+
+.input-container .selected {
+  color: #EB3636;
+}
+
+.card textarea {
+  border: none;
+  resize: none;
+}
+
+.card textarea:focus {
+  outline: none;
+}

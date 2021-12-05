@@ -1,0 +1,31 @@
+.card {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 24px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  width: auto;
+  padding: 20px;
+  border: none;
+}
+
+.card.left {
+  margin-left: 20px;
+  margin-left: 10px;
+}
+
+.card.center {
+  margin-left: 10px;
+  margin-left: 10px;
+}
+
+.card.middle {
+  margin-top: 20px;
+}
+
+.card.right {
+  margin-left: 10px;
+  margin-left: 20px;
+}
+
+.card.top {
+  margin-bottom: 20px;
+}

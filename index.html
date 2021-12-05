@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Input Generator</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+  <link href="styles/fonts.css" rel="stylesheet">
+  <link href="styles/cards.css" rel="stylesheet">
+  <link href="styles/inputs.css" rel="stylesheet">
+  <link href="styles/toggle_button.css" rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <h1>Input generator</h1>
+
+      <div class="col">
+        <div class="card left top">
+          <div class="input-container">
+            <div class="input-title">Type</div>
+            <select id="select-type" onchange="selectType_OnChange()">
+              <option value="text" selected>text</option>
+              <option value="email">email</option>
+              <option value="number">number</option>
+              <option value="time">time</option>
+              <option value="button">button</option>
+              <option value="checkbox">checkbox</option>
+              <option value="color">color</option>
+              <option value="date">date</option>
+              <option value="datetime-local">datetime-local</option>
+              <option value="file">file</option>
+              <option value="hidden">hidden</option>
+              <option value="image">image</option>
+              <option value="month">month</option>
+              <option value="password">password</option>
+              <option value="radio">radio</option>
+              <option value="range">range</option>
+              <option value="reset">reset</option>
+              <option value="search">search</option>
+              <option value="submit">submit</option>
+              <option value="tel">tel</option>
+              <option value="url">url</option>
+              <option value="week">week</option>
+            </select>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Need title?</div>
+            <label class="switch">
+              <input id="need-title-switch" type="checkbox" checked onchange="needTitle_OnChange()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Title</div>
+            <input id="input-title" type="text" value="Name" onchange="title_OnChange()">
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Placeholder</div>
+            <input id="input-placeholder" type="text" value="Please enter your name" onchange="placeholder_OnChange()">
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Required?</div>
+            <label class="switch">
+              <input id="is-required-switch" type="checkbox" onchange="isRequired_OnChange()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="input-container" id="input-container-title-font-size">
+            <div class="input-title">Title font size</div>
+            <input id="title-font-size" type="number" value="16" min="0" onchange="titleFontSize_OnChange()">
+            <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Placeholder font size</div>
+            <input id="placeholder-font-size" type="number" value="16" min="0" onchange="placeholderFontSize_OnChange()">
+            <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Title alignment</div>
+            <span id="title-alignment-left" class="material-icons selected" onclick="titleAlignmentLeft_OnClick()">format_align_left</span>
+            <span id="title-alignment-center" class="material-icons" onclick="titleAlignmentCenter_OnClick()">format_align_center</span>
+            <span id="title-alignment-right" class="material-icons" onclick="titleAlignmentRight_OnClick()">format_align_right</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Placeholder alignment</div>
+            <span id="placeholder-alignment-left" class="material-icons selected" onclick="placeholderAlignmentLeft_OnClick()">format_align_left</span>
+            <span id="placeholder-alignment-center" class="material-icons" onclick="placeholderAlignmentCenter_OnClick()">format_align_center</span>
+            <span id="placeholder-alignment-right" class="material-icons" onclick="placeholderAlignmentRight_OnClick()">format_align_right</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Corner radius</div>
+            <input id="corner-radius" type="number" value="20" min="0" onchange="cornerRadius_OnChange()">
+            <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Id</div>
+            <input id="input-id" type="text" value="first-name" onchange="id_OnChange()">
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card center top">
+          <div id="generated-input-container">
+            <div id="generated-input-title"></div>
+            <input id="" type="text" placeholder="">
+          </div>
+        </div>
+        <div class="card center middle">
+          <div class="code-title">
+            <h4>HTML</h4>
+            <button class="align-middle" onclick="copyHtmlCode()">
+              <span class="material-icons">content_copy</span>
+            </span>
+          </div>
+          <xmp id="generated-html"></xmp>
+        </div>
+        <div class="card center middle">
+          <div class="code-title">
+            <h4>CSS</h4>
+            <button class="align-middle" onclick="copyCssCode()">
+              <span class="material-icons">content_copy</span>
+            </span>
+          </div>
+          <xmp id="generated-css"></xmp>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card right top">
+          <div class="input-container">
+            <div class="input-title">Border color</div>
+            <div class="align-middle">
+              <input id="input-border-color" type="color" value="#0D0D0D" onchange="borderColor_OnChange()">
+              <span id="input-border-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Text color</div>
+            <div class="align-middle">
+              <input id="input-text-color" type="color" value="#0D0D0D" onchange="textColor_OnChange()">
+              <span id="input-text-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Background color</div>
+            <div class="align-middle">
+              <input id="input-background-color" type="color" value="#FFFFFF" onchange="backgroundColor_OnChange()">
+              <span id="input-background-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Title color</div>
+            <div class="align-middle">
+              <input id="input-title-color" type="color" value="#0D0D0D" onchange="titleColor_OnChange()">
+              <span id="input-title-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Placeholder color</div>
+            <div class="align-middle">
+              <input id="input-placeholder-color" type="color" value="#ADADAD" onchange="placeholderColor_OnChange()">
+              <span id="input-placeholder-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Selection background color</div>
+            <div class="align-middle">
+              <input id="input-selection-background-color" type="color" value="#ADADAD" onchange="selectionBackgroundColor_OnChange()">
+              <span id="input-selection-background-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Selection color</div>
+            <div class="align-middle">
+              <input id="input-selection-color" type="color" value="#0D0D0D" onchange="selectionColor_OnChange()">
+              <span id="input-selection-color-unit" class="input-unit"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+  <script src="scripts/script.js"></script>
+</body>
+</html>
