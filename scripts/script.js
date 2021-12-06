@@ -16,12 +16,24 @@ var titleColor = '';
 var placeholderColor = '';
 var selectionBackgroundColor = '';
 var selectionColor = '';
+var paddingLeft = 10;
+var paddingRight = 10;
+var paddingTop = 10;
+var paddingBottom = 10;
 
 var generatedInputHtml;
 var generatedInputCss;
 
 var inputContainerCssClass = 'input-container';
 var inputTitleCssClass = 'input-title';
+
+var canChangeTitleFontSize = false;
+var canChangePlaceholderFontSize = false;
+var canChangeCornerRadius = false;
+var canChangePaddingLeft = false;
+var canChangePaddingRight = false;
+var canChangePaddingTop = false;
+var canChangePaddingBottom = false;
 
 function main() {
   id = document.getElementById("input-id").value;
@@ -35,6 +47,10 @@ function main() {
   titleAlignment = 'left';
   placeholderAlignment = 'left';
   cornerRadius = document.getElementById("corner-radius").value;
+  paddingLeft = document.getElementById("padding-left").value;
+  paddingRight = document.getElementById("padding-right").value;
+  paddingTop = document.getElementById("padding-top").value;
+  paddingBottom = document.getElementById("padding-bottom").value;
 
   borderColor = document.getElementById("input-border-color").value;
   document.getElementById("input-border-color-unit").innerHTML = borderColor.toLocaleUpperCase();
@@ -84,12 +100,46 @@ function isRequired_OnChange() {
 
 function titleFontSize_OnChange() {
   titleFontSize = document.getElementById("title-font-size").value;
+  document.getElementById("title-font-size-range").value = titleFontSize;
   generateInput();
+}
+
+function titleFontSizeRange_OnMouseMove() {
+  if(canChangeTitleFontSize){
+    titleFontSize = document.getElementById("title-font-size-range").value;
+    document.getElementById("title-font-size").value = titleFontSize;
+    generateInput();
+  }
+}
+
+function titleFontSizeRange_OnMouseDown() {
+  canChangeTitleFontSize = true;
+}
+
+function titleFontSizeRange_OnMouseUp() {
+  canChangeTitleFontSize = false;
 }
 
 function placeholderFontSize_OnChange() {
   placeholderFontSize = document.getElementById("placeholder-font-size").value;
+  document.getElementById("placeholder-font-size-range").value = placeholderFontSize;
   generateInput();
+}
+
+function placeholderFontSizeRange_OnMouseMove() {
+  if(canChangePlaceholderFontSize){
+    placeholderFontSize = document.getElementById("placeholder-font-size-range").value;
+    document.getElementById("placeholder-font-size").value = placeholderFontSize;
+    generateInput();
+  }
+}
+
+function placeholderFontSizeRange_OnMouseDown() {
+  canChangePlaceholderFontSize = true;
+}
+
+function placeholderFontSizeRange_OnMouseUp() {
+  canChangePlaceholderFontSize = false;
 }
 
 function id_OnChange() {
@@ -152,7 +202,112 @@ function placeholderAlignmentRight_OnClick(){
 
 function cornerRadius_OnChange(){
   cornerRadius = document.getElementById("corner-radius").value;
+  document.getElementById("corner-radius-range").value = cornerRadius;
   generateInput();
+}
+
+function cornerRadiusRange_OnMouseMove(){
+  if(canChangeCornerRadius){
+    cornerRadius = document.getElementById("corner-radius-range").value;
+    document.getElementById("corner-radius").value = cornerRadius;
+    generateInput();
+  }
+}
+
+function cornerRadiusRange_OnMouseDown() {
+  canChangeCornerRadius = true;
+}
+
+function cornerRadiusRange_OnMouseUp() {
+  canChangeCornerRadius = false;
+}
+
+function paddingLeft_OnChange(){
+  paddingLeft = document.getElementById("padding-left").value;
+  document.getElementById("padding-left-range").value = paddingLeft;
+  generateInput();
+}
+
+function paddingLeftRange_OnMouseMove(){
+  if(canChangePaddingLeft){
+    paddingLeft = document.getElementById("padding-left-range").value;
+    document.getElementById("padding-left").value = paddingLeft;
+    generateInput();
+  }
+}
+
+function paddingLeftRange_OnMouseDown() {
+  canChangePaddingLeft = true;
+}
+
+function paddingLeftRange_OnMouseUp() {
+  canChangePaddingLeft = false;
+}
+
+function paddingRight_OnChange(){
+  paddingRight = document.getElementById("padding-right").value;
+  document.getElementById("padding-right-range").value = paddingRight;
+  generateInput();
+}
+
+function paddingRightRange_OnMouseMove(){
+  if(canChangePaddingRight){
+    paddingRight = document.getElementById("padding-right-range").value;
+    document.getElementById("padding-right").value = paddingRight;
+    generateInput();
+  }
+}
+
+function paddingRightRange_OnMouseDown() {
+  canChangePaddingRight = true;
+}
+
+function paddingRightRange_OnMouseUp() {
+  canChangePaddingRight = false;
+}
+
+function paddingTop_OnChange(){
+  paddingTop = document.getElementById("padding-top").value;
+  document.getElementById("padding-top-range").value = paddingTop;
+  generateInput();
+}
+
+function paddingTopRange_OnMouseMove(){
+  if(canChangePaddingTop){
+    paddingTop = document.getElementById("padding-top-range").value;
+    document.getElementById("padding-top").value = paddingTop;
+    generateInput();
+  }
+}
+
+function paddingTopRange_OnMouseDown() {
+  canChangePaddingTop = true;
+}
+
+function paddingTopRange_OnMouseUp() {
+  canChangePaddingTop = false;
+}
+
+function paddingBottom_OnChange(){
+  paddingBottom = document.getElementById("padding-bottom").value;
+  document.getElementById("padding-bottom-range").value = paddingBottom;
+  generateInput();
+}
+
+function paddingBottomRange_OnMouseMove(){
+  if(canChangePaddingBottom){
+    paddingBottom = document.getElementById("padding-bottom-range").value;
+    document.getElementById("padding-bottom").value = paddingBottom;
+    generateInput();
+  }
+}
+
+function paddingBottomRange_OnMouseDown() {
+  canChangePaddingBottom = true;
+}
+
+function paddingBottomRange_OnMouseUp() {
+  canChangePaddingBottom = false;
 }
 
 function borderColor_OnChange(){
@@ -261,6 +416,10 @@ function generateInput() {
   generatedInputClassStyle += 'border: 1px solid ' + borderColor + ';';
   generatedInputClassStyle += 'background-color: ' + backgroundColor + ';';
   generatedInputClassStyle += 'color: ' + textColor + ';';
+  generatedInputClassStyle += 'padding-left: ' + paddingLeft + 'px;';
+  generatedInputClassStyle += 'padding-right: ' + paddingRight + 'px;';
+  generatedInputClassStyle += 'padding-top: ' + paddingTop + 'px;';
+  generatedInputClassStyle += 'padding-bottom: ' + paddingBottom + 'px;';
   generatedInputClassStyle += '}';
   generatedInputClassStyleElement.innerHTML = generatedInputClassStyle;
   document.getElementsByTagName('head')[0].appendChild(generatedInputClassStyleElement);
@@ -280,6 +439,8 @@ function generateHtmlOutput() {
   if (isRequired) {
     generatedInputHtml += 'required ';
   }
+
+  generatedInputHtml = generatedInputHtml.substr(0, generatedInputHtml.length - 1);
 
   generatedInputHtml += '>\n';
   generatedInputHtml += '</div>';
@@ -310,8 +471,11 @@ function generateCssOutput() {
   generatedInputCss += '\tborder-radius: ' + cornerRadius + 'px;\n';
   generatedInputCss += '\tborer: 1px solid ' + borderColor + ';\n';
   generatedInputCss += '\tbackground-color: ' + backgroundColor + ';\n';
-  generatedInputCss += '\tcolor: ' + textColor + ';';
-  generatedInputCss += '\n';
+  generatedInputCss += '\tcolor: ' + textColor + ';\n';
+  generatedInputCss += '\tpadding-left: ' + paddingLeft + 'px;\n';
+  generatedInputCss += '\tpadding-right: ' + paddingRight + 'px;\n';
+  generatedInputCss += '\tpadding-top: ' + paddingTop + 'px;\n';
+  generatedInputCss += '\tpadding-bottom: ' + paddingBottom + 'px;\n';
   generatedInputCss += '}\n';
 
 

@@ -72,22 +72,16 @@
             <input id="input-placeholder" type="text" value="Please enter your name" onchange="placeholder_OnChange()">
           </div>
 
-          <div class="input-container">
-            <div class="input-title">Required?</div>
-            <label class="switch">
-              <input id="is-required-switch" type="checkbox" onchange="isRequired_OnChange()">
-              <span class="slider round"></span>
-            </label>
-          </div>
-
           <div class="input-container" id="input-container-title-font-size">
             <div class="input-title">Title font size</div>
+            <input id="title-font-size-range" type="range" value="16" min="10" max="80" onmousemove="titleFontSizeRange_OnMouseMove()" onmousedown="titleFontSizeRange_OnMouseDown()" onmouseup="titleFontSizeRange_OnMouseUp()">
             <input id="title-font-size" type="number" value="16" min="0" onchange="titleFontSize_OnChange()">
             <span class="input-unit">px</span>
           </div>
 
           <div class="input-container">
             <div class="input-title">Placeholder font size</div>
+            <input id="placeholder-font-size-range" type="range" value="16" min="10" max="80" onmousemove="placeholderFontSizeRange_OnMouseMove()" onmousedown="placeholderFontSizeRange_OnMouseDown()" onmouseup="placeholderFontSizeRange_OnMouseUp()">
             <input id="placeholder-font-size" type="number" value="16" min="0" onchange="placeholderFontSize_OnChange()">
             <span class="input-unit">px</span>
           </div>
@@ -108,8 +102,21 @@
 
           <div class="input-container">
             <div class="input-title">Corner radius</div>
-            <input id="corner-radius" type="number" value="20" min="0" onchange="cornerRadius_OnChange()">
+            <input id="corner-radius-range"
+                   type="range" value="16" min="0" max="50"
+                   onmousemove="cornerRadiusRange_OnMouseMove()"
+                   onmousedown="cornerRadiusRange_OnMouseDown()"
+                   onmouseup="cornerRadiusRange_OnMouseUp()">
+            <input id="corner-radius" type="number" value="10" min="0" onchange="cornerRadius_OnChange()">
             <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Required?</div>
+            <label class="switch">
+              <input id="is-required-switch" type="checkbox" onchange="isRequired_OnChange()">
+              <span class="slider round"></span>
+            </label>
           </div>
 
           <div class="input-container">
@@ -201,6 +208,50 @@
               <input id="input-selection-color" type="color" value="#0D0D0D" onchange="selectionColor_OnChange()">
               <span id="input-selection-color-unit" class="input-unit"></span>
             </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Padding-left</div>
+            <input id="padding-left-range"
+                   type="range" value="16" min="0" max="50"
+                   onmousemove="paddingLeftRange_OnMouseMove()"
+                   onmousedown="paddingLeftRange_OnMouseDown()"
+                   onmouseup="paddingLeftRange_OnMouseUp()">
+            <input id="padding-left" type="number" value="10" min="0" onchange="paddingLeft_OnChange()">
+            <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Padding-right</div>
+            <input id="padding-right-range"
+                   type="range" value="16" min="0" max="50"
+                   onmousemove="paddingRightRange_OnMouseMove()"
+                   onmousedown="paddingRightRange_OnMouseDown()"
+                   onmouseup="paddingRightRange_OnMouseUp()">
+            <input id="padding-right" type="number" value="10" min="0" onchange="paddingRight_OnChange()">
+            <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Padding-top</div>
+            <input id="padding-top-range"
+                   type="range" value="16" min="0" max="50"
+                   onmousemove="paddingTopRange_OnMouseMove()"
+                   onmousedown="paddingTopRange_OnMouseDown()"
+                   onmouseup="paddingTopRange_OnMouseUp()">
+            <input id="padding-top" type="number" value="10" min="0" onchange="paddingTop_OnChange()">
+            <span class="input-unit">px</span>
+          </div>
+
+          <div class="input-container">
+            <div class="input-title">Padding-bottom</div>
+            <input id="padding-bottom-range"
+                   type="range" value="16" min="0" max="50"
+                   onmousemove="paddingBottomRange_OnMouseMove()"
+                   onmousedown="paddingBottomRange_OnMouseDown()"
+                   onmouseup="paddingBottomRange_OnMouseUp()">
+            <input id="padding-bottom" type="number" value="10" min="0" onchange="paddingBottom_OnChange()">
+            <span class="input-unit">px</span>
           </div>
 
         </div>
